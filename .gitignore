@@ -44,7 +44,7 @@ test-output
 # add other ignore file below
 
 # local env files
-
+.env
 # vercel
 .vercel
 
