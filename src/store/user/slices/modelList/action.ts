@@ -89,6 +89,9 @@ export const createModelListSlice: StateCreator<
     };
 
     const defaultModelProviderList = produce(DEFAULT_MODEL_PROVIDER_LIST, (draft) => {
+      const deepseek = draft.find((d) => d.id === ModelProvider.DeepSeek);
+      if (deepseek) deepseek.chatModels = mergeModels('deepseek', deepseek.chatModels);
+
       const openai = draft.find((d) => d.id === ModelProvider.OpenAI);
       if (openai) openai.chatModels = mergeModels('openai', openai.chatModels);
 
